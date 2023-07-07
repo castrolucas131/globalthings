@@ -1,0 +1,7 @@
+{
+  "name": "globalthings",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

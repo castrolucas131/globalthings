@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Heroes Lists
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-button (click)="pageAdd()" type="submit" shape="round" fill="outline">
+        <ion-icon slot="end" name="add"></ion-icon>
+          Add Hero
+      </ion-button>
+      <ion-button (click)="sendOffline()" type="submit" shape="round" fill="outline">
+          Send Offline
+      </ion-button>
+    </ion-list-header>
+    <ion-item *ngFor="let item of modelHeroes">
+      <ion-label>
+        <h1>Hero: {{ item.Name }}</h1>
+        <p>Active: {{ item.Active}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

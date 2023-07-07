@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Heroes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form [formGroup]="HeroesForm" *ngIf="HeroesForm" (ngSubmit)="onRegister()">
+    <ion-item>
+      <ion-label position="floating">Heroe Name:</ion-label>
+      <ion-input type="text" formControlName="Name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Category:</ion-label>
+      <ion-select formControlName="CategoryId" required>
+        <ion-select-option *ngFor="let c of categories" [value]="c.Id">
+          {{ c.Name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox type="checkbox" formControlName="Active" checked="true">Active</ion-checkbox>
+      <ion-label>Active</ion-label>
+    </ion-item>
+
+    <ion-button [disabled]="HeroesForm.invalid" type="submit" expand="block" shape="round">
+      <ion-icon slot="end" name="add"></ion-icon>
+      Submit
+    </ion-button>
+    <br>
+    <ion-button (click)="onCancel()" color="danger" expand="block" shape="round">
+      <ion-icon slot="end" name="close-outline"></ion-icon>
+      Cancel
+    </ion-button>
+  </form>
+</ion-content>
